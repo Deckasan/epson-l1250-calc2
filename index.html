@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulador Epson L1250</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de Economia - Epson EcoTank L1250</h1>
+    <p class="disclaimer">
+      Comparado com impressoras de cartucho. Base de comparação: Epson Expression XP-214. <br>
+      Considerado uso semanal constante, kit original com 4 tintas e rendimento médio de 4.500 páginas em preto e 7.500 em colorido.
+    </p>
+    <label for="pages">Quantas páginas você imprime por semana? (mínimo: 30)</label>
+    <input type="number" id="pages" min="30" />
+    <button onclick="calcular()">Calcular Economia</button>
+    <div id="resultado"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

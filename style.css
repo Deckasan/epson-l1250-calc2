@@ -1,0 +1,34 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #003399;
+  padding: 20px;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+button {
+  padding: 10px 20px;
+  background-color: #003399;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #002266;
+}
+#resultado {
+  margin-top: 20px;
+  background: #f2f2f2;
+  padding: 15px;
+}
+.disclaimer {
+  font-size: 0.85em;
+  color: #555;
+}
