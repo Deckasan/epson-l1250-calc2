@@ -1,26 +1,66 @@
-function calcular() {
-  const pages = parseInt(document.getElementById('pages').value);
-  if (pages < 30) {
-    alert("O número mínimo de páginas é 30.");
+
+function calcularEconomia() {
+  const paginasMes = parseInt(document.getElementById("paginasMes").value);
+  if (isNaN(paginasMes) || paginasMes < 30) {
+    document.getElementById("resultado").innerHTML = "<p>Insira no mínimo 30 páginas por mês.</p>";
+    document.getElementById("economia-anual").innerHTML = "";
     return;
   }
 
-  const semanas = 52;
-  const total_paginas_ano = pages * semanas;
+  const precoCartucho = 70.0;
+  const rendimentoCartucho = 150;
+  const precoKitTinta = 225.90;
+  const rendimentoTintaPreto = 4500;
 
-  const preco_cartucho = 70;
-  const rendimento_cartucho = 150;
+  const custoPorPaginaCartucho = precoCartucho / rendimentoCartucho;
+  const custoPorPaginaEcoTank = precoKitTinta / rendimentoTintaPreto;
 
-  const preco_kit_tinta = 225.90;
-  const rendimento_tinta_preto = 4500;
+  const totalPaginasAno = paginasMes * 12;
+  const custoCartucho = totalPaginasAno * custoPorPaginaCartucho;
+  const custoEcoTank = totalPaginasAno * custoPorPaginaEcoTank;
+  const economia = custoCartucho - custoEcoTank;
+  const economiaPercentual = (economia / custoCartucho) * 100;
 
-  const custo_cartucho = (total_paginas_ano / rendimento_cartucho) * preco_cartucho;
-  const custo_tinta = (total_paginas_ano / rendimento_tinta_preto) * preco_kit_tinta;
+  let resultado = "<p><strong>Comparativo anual:</strong></p>";
+  resultado += "<p>Impressora com cartucho: R$ " + custoCartucho.toFixed(2) + "</p>";
+  resultado += "<p>Impressora Epson L1250: R$ " + custoEcoTank.toFixed(2) + "</p>";
+  resultado += "<p><strong>Economia anual:</strong> R$ " + economia.toFixed(2) + " (" + economiaPercentual.toFixed(1) + "%)</p>";
 
-  const economia = custo_cartucho - custo_tinta;
-  const economia_pct = ((economia / custo_cartucho) * 100).toFixed(2);
+  document.getElementById("resultado").innerHTML = resultado;
 
-  document.getElementById("resultado").innerHTML = 
-    `<p>Com a Epson EcoTank L1250, você economiza cerca de <strong>R$ ${economia.toFixed(2)}</strong> ao ano.<br>
-    Isso representa <strong>${economia_pct}%</strong> de economia em relação a uma impressora com cartucho.</p>`;
+  mostrarEconomiaAnual(paginasMes);
 }
+
+function mostrarEconomiaAnual(paginasMes) {
+  const precoCartucho = 70.0;
+  const rendimentoCartucho = 150;
+  const precoKitTinta = 225.90;
+  const rendimentoTintaPreto = 4500;
+
+  const custoPorPaginaCartucho = precoCartucho / rendimentoCartucho;
+  const custoPorPaginaEcoTank = precoKitTinta / rendimentoTintaPreto;
+
+  const anos = [1, 2, 3];
+  let resultadoHTML = '';
+
+  anos.forEach(ano => {
+    const totalPaginas = paginasMes * 12 * ano;
+    const custoCartucho = totalPaginas * custoPorPaginaCartucho;
+    const custoEcoTank = totalPaginas * custoPorPaginaEcoTank;
+    const economia = custoCartucho - custoEcoTank;
+    const economiaPercentual = (economia / custoCartucho) * 100;
+
+    if (economia > 0) {
+      resultadoHTML += `
+        <p><strong>💰 Economia em ${ano} ano${ano > 1 ? 's' : ''}:</strong> R$ ${economia.toFixed(2)} (${economiaPercentual.toFixed(1)}%)</p>
+      `;
+    }
+  });
+
+  const economiaAnualDiv = document.getElementById("economia-anual");
+  if (economiaAnualDiv) {
+    economiaAnualDiv.innerHTML = resultadoHTML;
+  }
+}
+
+window.onload = calcularEconomia;

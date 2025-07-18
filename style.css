@@ -1,34 +1,25 @@
+
 body {
-  font-family: Arial, sans-serif;
-  background: #ffffff;
-  color: #003399;
-  padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    color: #333;
+    text-align: center;
+    padding: 50px;
 }
 .container {
-  max-width: 600px;
-  margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    width: 100px;
 }
-button {
-  padding: 10px 20px;
-  background-color: #003399;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #002266;
-}
-#resultado {
-  margin-top: 20px;
-  background: #f2f2f2;
-  padding: 15px;
-}
-.disclaimer {
-  font-size: 0.85em;
-  color: #555;
+#resultado, #economia-anual {
+    margin-top: 20px;
+    font-size: 18px;
 }
