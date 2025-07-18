@@ -1,0 +1,35 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #e8f0fe;
+    color: #1a237e;
+    text-align: center;
+    padding: 50px;
+}
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 100px;
+}
+#resultado, #economia-anual {
+    margin-top: 20px;
+    font-size: 18px;
+}
+.aviso {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #333;
+}
+#disclaimer {
+    margin-top: 40px;
+    font-size: 13px;
+    color: #666;
+}
